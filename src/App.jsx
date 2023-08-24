@@ -164,7 +164,7 @@ function App() {
             // else disconnectWallet()
             else window.my_modal_1.showModal()
           }}
-          className='bg-[#71422d] text-[#f4e89c] font-bold text-[60px]'
+          className='bg-[#71422d] text-[#f4e89c] font-bold text-[28px]'
         >
           {!okxInstalled && 'Install OKX Wallet'}
           {okxInstalled && wallet ? 'Connected' : 'Connect'}
