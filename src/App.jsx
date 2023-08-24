@@ -11,6 +11,7 @@ function App() {
     // return wallet account information
     console.log(wallet)
     setWallet(wallet)
+    window.my_modal_1.showModal()
   }
   const changed = (wallet) => {
     // return wallet account information
@@ -129,12 +130,37 @@ function App() {
   return (
     <>
       <div className='card'>
+
+        {/* <button className='btn' onClick={() => window.my_modal_1.showModal()}>
+          open modal
+        </button> */}
+        <dialog id='my_modal_1' className='modal'>
+          <form method='dialog' className='modal-box'>
+            <h3 className='font-bold text-lg'>APE LIFE SAVINGS</h3>
+            <button
+              className='btn btn-info w-full'
+              onClick={() =>
+                window.open(
+                  'https://www.okx.com/web3/dex-swap#inputChain=1&inputCurrency=ETH&outputChain=1&outputCurrency=0x07e0edf8ce600fb51d44f51e3348d77d67f298ae',
+                  '_blank'
+                )
+              }>
+              Buy
+            </button>
+            {/* <p className="py-4">Press ESC key or click the button below to close</p> */}
+            <div className='modal-action'>
+              {/* if there is a button in form, it will close the modal */}
+              <button className='btn'>Close</button>
+            </div>
+          </form>
+        </dialog>
         <button
           onClick={() => {
             if (!wallet) connectWallet()
-            else disconnectWallet()
+            // else disconnectWallet()
+            else window.my_modal_1.showModal()
           }}>
-          {wallet ? 'Disconnect wallet' : 'Connect'}
+          {wallet ? 'Connected' : 'Connect'}
         </button>
       </div>
     </>
