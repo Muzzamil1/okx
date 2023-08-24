@@ -133,7 +133,7 @@ function App() {
 
   let btnText = ''
   if (!okxInstalled) btnText = 'Install OKX Wallet'
-  else if (okxInstalled && !wallet) btnText = 'Connect'
+  else if (okxInstalled && !wallet) btnText = 'OKX Wallet'
   else if (okxInstalled && wallet) btnText = 'Connected'
   return (
     <>
