@@ -143,7 +143,7 @@ function App() {
         </button> */}
         <dialog id='my_modal_1' className='modal h-max'>
           <form method='dialog' className='modal-box bg-[#9d5c3e]'>
-            <h3 className='font-bold text-lg'>BIG BENISES ONLY</h3>
+            <h3 className='text-center mb-4 font-bold text-3xl'>BIG BENISES ONLY</h3>
             <button
               className='btn w-full bg-[#71422d] text-[#f4e89c] font-bold text-[28px]'
               onClick={() =>
