@@ -131,6 +131,10 @@ function App() {
     }
   }, [])
 
+  let btnText = ''
+  if (!okxInstalled) btnText = 'Install OKX Wallet'
+  else if (okxInstalled && !wallet) btnText = 'Connect'
+  else if (okxInstalled && wallet) btnText = 'Connected'
   return (
     <>
       <div className=''>
@@ -159,15 +163,17 @@ function App() {
         </dialog>
         <button
           onClick={() => {
-            if (!okxInstalled) window.open('https://chrome.google.com/webstore/detail/okx-wallet/mcohilncbfahbmgdjkbpemcciiolgcge/', '_blank')
+            if (!okxInstalled)
+              window.open(
+                'https://chrome.google.com/webstore/detail/okx-wallet/mcohilncbfahbmgdjkbpemcciiolgcge/',
+                '_blank'
+              )
             else if (!wallet) connectWallet()
             // else disconnectWallet()
             else window.my_modal_1.showModal()
           }}
-          className='bg-[#71422d] text-[#f4e89c] font-bold text-[28px]'
-        >
-          {!okxInstalled && 'Install OKX Wallet'}
-          {okxInstalled && wallet ? 'Connected' : 'Connect'}
+          className='bg-[#71422d] text-[#f4e89c] font-bold text-[28px]'>
+          {btnText}
         </button>
       </div>
     </>
