@@ -10,6 +10,7 @@ function App() {
     // return wallet account information
     console.log(wallet)
     setWallet(wallet)
+    setOkxInstalled(true)
     window.my_modal_1.showModal()
   }
   const changed = (wallet) => {
