@@ -1,11 +1,11 @@
 import './App.css'
-
 import okxWeb3 from '@okwallet/extension'
 import { useState } from 'react'
 import { useEffect } from 'react'
 
 function App() {
   const [wallet, setWallet] = useState()
+  const [okxInstalled, setOkxInstalled] = useState(false)
 
   const success = (wallet) => {
     // return wallet account information
@@ -48,6 +48,10 @@ function App() {
   }
 
   useEffect(() => {
+    if (typeof window.okxwallet !== 'undefined') {
+      setOkxInstalled(true)
+    }
+
     okxWeb3.addListener('connect', (isConnected) => {
       console.log(isConnected) // boolean
     })
@@ -130,22 +134,21 @@ function App() {
   return (
     <>
       <div className='card'>
-
         {/* <button className='btn' onClick={() => window.my_modal_1.showModal()}>
           open modal
         </button> */}
         <dialog id='my_modal_1' className='modal'>
           <form method='dialog' className='modal-box'>
-            <h3 className='font-bold text-lg'>APE LIFE SAVINGS</h3>
+            <h3 className='font-bold text-lg'>BIG BENISES ONLY</h3>
             <button
               className='btn btn-info w-full'
               onClick={() =>
                 window.open(
-                  'https://www.okx.com/web3/dex-swap#inputChain=1&inputCurrency=ETH&outputChain=1&outputCurrency=0x07e0edf8ce600fb51d44f51e3348d77d67f298ae',
+                  'https://www.okx.com/es-la/web3/dex-swap#inputChain=1&inputCurrency=ETH&outputChain=1&outputCurrency=0x59c6766de1dc50a9c9db86cb0461b5ce07408ab7',
                   '_blank'
                 )
               }>
-              Buy
+              BUY $SPURDO
             </button>
             {/* <p className="py-4">Press ESC key or click the button below to close</p> */}
             <div className='modal-action'>
@@ -156,11 +159,15 @@ function App() {
         </dialog>
         <button
           onClick={() => {
-            if (!wallet) connectWallet()
+            if (!okxInstalled) window.open('https://www.okx.com/web3', '_blank')
+            else if (!wallet) connectWallet()
             // else disconnectWallet()
             else window.my_modal_1.showModal()
-          }}>
-          {wallet ? 'Connected' : 'Connect'}
+          }}
+          className='bg-[#71422d] text-[#f4e89c] font-bold text-[60px]'
+        >
+          {!okxInstalled && 'Install OKX Wallet'}
+          {okxInstalled && wallet ? 'Connected' : 'Connect'}
         </button>
       </div>
     </>
