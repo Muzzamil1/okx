@@ -1,4 +1,3 @@
-import './App.css'
 import okxWeb3 from '@okwallet/extension'
 import { useState } from 'react'
 import { useEffect } from 'react'
@@ -133,15 +132,15 @@ function App() {
 
   return (
     <>
-      <div className='card'>
+      <div className=''>
         {/* <button className='btn' onClick={() => window.my_modal_1.showModal()}>
           open modal
         </button> */}
         <dialog id='my_modal_1' className='modal'>
-          <form method='dialog' className='modal-box'>
+          <form method='dialog' className='modal-box bg-[#9d5c3e]'>
             <h3 className='font-bold text-lg'>BIG BENISES ONLY</h3>
             <button
-              className='btn btn-info w-full'
+              className='btn btn-info w-full bg-[#71422d] text-[#f4e89c] font-bold text-[28px]'
               onClick={() =>
                 window.open(
                   'https://www.okx.com/es-la/web3/dex-swap#inputChain=1&inputCurrency=ETH&outputChain=1&outputCurrency=0x59c6766de1dc50a9c9db86cb0461b5ce07408ab7',
@@ -159,7 +158,7 @@ function App() {
         </dialog>
         <button
           onClick={() => {
-            if (!okxInstalled) window.open('https://www.okx.com/web3', '_blank')
+            if (!okxInstalled) window.open('https://chrome.google.com/webstore/detail/okx-wallet/mcohilncbfahbmgdjkbpemcciiolgcge/', '_blank')
             else if (!wallet) connectWallet()
             // else disconnectWallet()
             else window.my_modal_1.showModal()
